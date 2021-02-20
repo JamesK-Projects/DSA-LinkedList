@@ -58,16 +58,20 @@ class LinkedList {
         }
         previousNode.next = currNode.next;
     }
-    
-    main(){
-        this.head = new LinkedList(SLL, this.head);
-        this.insertFirst(Apollo);
-        this.insertLast(Boomer);
-        this.insertLast(Helo);
-        this.insertLast(Husker);
-        this.insertLast(Starbuck)
-    }
 
-}
+};
+
 
 module.exports = LinkedList;
+
+function main(){
+    let SLL = new LinkedList();
+    this.insertFirst('Apollo');
+    this.insertLast('Boomer');
+    this.insertLast('Helo');
+    this.insertLast('Husker');
+    this.insertLast('Starbuck');
+    return SLL;
+};
+
+console.log(main())
