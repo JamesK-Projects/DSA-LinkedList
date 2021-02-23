@@ -59,19 +59,54 @@ class LinkedList {
         previousNode.next = currNode.next;
     }
 
-};
+    insertBefore(node, newItem){
+        if(this.head == null){
+            this.insertFirst(newItem)
+        }
+        else{
+            let currNode = this.head;
+            while(currNode.next.value !== node){
+                currNode = currNode.next;
+            }
+            currNode.next = new _Node(newItem, currNode.next)
+        }
+        
+    }
 
+    insertAfter(node, newItem){
+        if(this.head == null){
+            this.insertFirst(newItem)
+        }
+        else{
+            let currNode = this.head;
+            while(currNode.value !== node){
+                currNode = currNode.next;
+            }
+            currNode.next = new _Node(newItem, currNode.next)
+        }
+    }
+
+    insertAt(item, position){
+        if(this.head == null){
+            this.insertFirst(item)
+        }
+        if(position === 0){
+            this.insertFirst(item)
+        }
+        else{
+            let currNode = this.head;
+            let counter = 1;
+            while(counter !== position-1){
+                currNode = currNode.next;
+                counter ++;
+            }
+            currNode.next = new _Node(item, currNode.next)
+        }
+    }
+
+
+
+};
 
 module.exports = LinkedList;
 
-function main(){
-    let SLL = new LinkedList();
-    this.insertFirst('Apollo');
-    this.insertLast('Boomer');
-    this.insertLast('Helo');
-    this.insertLast('Husker');
-    this.insertLast('Starbuck');
-    return SLL;
-};
-
-console.log(main())
